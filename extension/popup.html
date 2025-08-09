@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>CattyPassword Manager</title>
+<style>
+  /* Reset and base */
+  * {
+    box-sizing: border-box;
+  }
+  body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    background: #f9fbfd;
+    color: #1e293b;
+    user-select: none;
+    width: 400px;
+    height: 600px;
+    display: flex;
+    flex-direction: column;
+  }
+  header {
+    background: #3b82f6;
+    color: white;
+    padding: 20px 25px;
+    font-size: 1.5rem;
+    font-weight: 700;
+    text-align: center;
+    border-radius: 0 0 15px 15px;
+  }
+
+  /* Tabs */
+  nav {
+    display: flex;
+    background: #e0e7ff;
+    border-radius: 15px;
+    margin: 15px 20px 0 20px;
+    overflow: hidden;
+    box-shadow: 0 0 8px rgb(59 130 246 / 0.3);
+  }
+  nav button {
+    flex: 1;
+    padding: 12px 0;
+    font-weight: 600;
+    font-size: 1rem;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #2563eb;
+    border-right: 1px solid #a5b4fc;
+    transition: background-color 0.25s ease;
+    border-radius: 0;
+  }
+  nav button:last-child {
+    border-right: none;
+  }
+  nav button.active,
+  nav button:hover {
+    background: #3b82f6;
+    color: white;
+  }
+
+  /* Pages */
+  main {
+    flex-grow: 1;
+    padding: 20px 25px;
+    overflow-y: auto;
+  }
+  section {
+    display: none;
+  }
+  section.active {
+    display: block;
+  }
+
+  /* Inputs and buttons */
+  label {
+    font-weight: 600;
+    margin-top: 15px;
+    display: block;
+  }
+  input[type="text"], input[type="password"], textarea {
+    width: 100%;
+    padding: 10px 12px;
+    margin-top: 6px;
+    border: 2px solid #cbd5e1;
+    border-radius: 12px;
+    font-size: 16px;
+    font-family: inherit;
+    transition: border-color 0.3s ease;
+  }
+  input[type="text"]:focus, input[type="password"]:focus, textarea:focus {
+    outline: none;
+    border-color: #3b82f6;
+    box-shadow: 0 0 5px #3b82f6;
+  }
+
+  textarea {
+    resize: vertical;
+  }
+
+  button {
+    margin-top: 20px;
+    padding: 14px 0;
+    width: 100%;
+    border: none;
+    background: #3b82f6;
+    color: white;
+    font-size: 18px;
+    font-weight: 700;
+    border-radius: 15px;
+    cursor: pointer;
+    transition: background-color 0.25s ease;
+  }
+  button:hover {
+    background: #2563eb;
+  }
+
+  /* Password List in Manage */
+  #passwordList {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+  .password-item {
+    display: flex;
+    background: white;
+    border-radius: 15px;
+    padding: 15px 20px;
+    box-shadow: 0 3px 6px rgb(59 130 246 / 0.1);
+    align-items: center;
+  }
+  .password-item > div:first-child {
+    flex-grow: 1;
+    word-break: break-word;
+  }
+  .password-item button.small-btn {
+    margin-bottom: 8px;
+    padding: 6px 12px;
+    font-size: 14px;
+    font-weight: 600;
+    border-radius: 12px;
+    border: none;
+    cursor: pointer;
+    background: #3b82f6;
+    color: white;
+    transition: background-color 0.3s ease;
+    width: 70px;
+  }
+  .password-item button.small-btn:hover {
+    background: #2563eb;
+  }
+
+  /* Modal */
+  #modalOverlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(30, 41, 59, 0.8);
+    z-index: 9999;
+    align-items: center;
+    justify-content: center;
+  }
+  #modalContent {
+    background: white;
+    border-radius: 15px;
+    max-width: 90%;
+    max-height: 80%;
+    overflow-y: auto;
+    padding: 25px 30px;
+    box-shadow: 0 6px 12px rgb(59 130 246 / 0.3);
+    font-size: 16px;
+    color: #1e293b;
+    user-select: text;
+  }
+  #modalClose {
+    margin-top: 20px;
+    background: #3b82f6;
+    color: white;
+    font-weight: 700;
+    padding: 10px 16px;
+    border-radius: 12px;
+    cursor: pointer;
+    border: none;
+    font-size: 16px;
+    width: 100%;
+    transition: background-color 0.25s ease;
+  }
+  #modalClose:hover {
+    background: #2563eb;
+  }
+
+  /* Settings page specific */
+  #pageSettings label {
+    user-select: text;
+  }
+  #pageSettings button {
+    max-width: 100%;
+  }
+</style>
+</head>
+<body>
+
+<header>CattyPassword Manager</header>
+
+<nav>
+  <button id="tabGenerate" class="active">Generate</button>
+  <button id="tabManage">Manage</button>
+  <button id="tabSettings">Settings</button>
+  <button id="tabCredits">Credits</button>
+</nav>
+
+<main>
+  <!-- Generate Page -->
+  <section id="pageGenerate" class="active">
+    <label for="siteName">Site / Name</label>
+    <input type="text" id="siteName" placeholder="e.g. Gmail" />
+
+    <label for="inputUsername">Username</label>
+    <input type="text" id="inputUsername" placeholder="e.g. myemail@example.com" />
+
+    <label for="genPassword">Password</label>
+    <input type="text" id="genPassword" readonly />
+
+    <label for="inputNote">Note</label>
+    <textarea id="inputNote" rows="3" placeholder="Optional notes..."></textarea>
+
+    <button id="btnGenerate">Generate Password</button>
+    <button id="btnSaveGenerated">Save Password</button>
+  </section>
+
+  <!-- Manage Page -->
+  <section id="pageManage">
+    <div id="passwordList">Loading passwords...</div>
+
+    <button id="btnExport">Export Passwords (JSON)</button>
+    <button id="btnImport">Import Passwords (JSON)</button>
+    <input type="file" id="importFile" style="display:none" accept=".json,application/json" />
+  </section>
+
+  <!-- Settings Page -->
+  <section id="pageSettings">
+    <h2>Settings</h2>
+    <label><input type="checkbox" id="settingFakeWarning" /> Show warning popup on export/import</label>
+
+    <button id="btnReset" style="background:#d43f3f;color:white;">Reset All Passwords</button>
+
+    <button id="btnImportCSV" style="margin-top: 25px;">Import Google Password Manager CSV</button>
+    <input type="file" id="importCSVFile" style="display:none" accept=".csv,text/csv" />
+  </section>
+
+  <!-- Credits Page -->
+  <section id="pageCredits">
+    <h2>Credits</h2>
+    <p>This is an open source project by the CattyMod Team.</p>
+    <p>Collaborator: <strong>Noahscratch493</strong></p>
+    <p>Source code: <a href="https://github.com/cattymod/pass/" target="_blank" rel="noopener noreferrer">GitHub Repository</a></p>
+  </section>
+</main>
+
+<!-- Modal -->
+<div id="modalOverlay">
+  <div id="modalContent">
+    <div id="modalMessage"></div>
+    <button id="modalClose">Close</button>
+  </div>
+</div>
+
+<script src="popup.js"></script>
+
+</body>
+</html>
