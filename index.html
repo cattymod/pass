@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CattyPassword Manager 🐾</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f8fbff;
+      margin: 0;
+      color: #333;
+    }
+    header {
+      background: #4aa3f0;
+      color: white;
+      padding: 20px;
+      text-align: center;
+      border-bottom-left-radius: 15px;
+      border-bottom-right-radius: 15px;
+    }
+    h1 {
+      margin: 0;
+      font-size: 2.5em;
+    }
+    nav {
+      margin-top: 10px;
+    }
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin: 0 15px;
+      font-weight: bold;
+    }
+    nav a:hover {
+      text-decoration: underline;
+    }
+    section {
+      max-width: 900px;
+      margin: auto;
+      padding: 30px;
+    }
+    .features {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+    }
+    .feature-card {
+      background: white;
+      border-radius: 12px;
+      padding: 20px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+      text-align: center;
+    }
+    .feature-card h3 {
+      color: #4aa3f0;
+    }
+    .download-btn {
+      display: inline-block;
+      margin-top: 20px;
+      background: #4aa3f0;
+      color: white;
+      padding: 12px 24px;
+      border-radius: 25px;
+      font-size: 1.2em;
+      text-decoration: none;
+      transition: background 0.2s ease;
+    }
+    .download-btn:hover {
+      background: #3790d9;
+    }
+    footer {
+      background: #f1f6fa;
+      text-align: center;
+      padding: 15px;
+      font-size: 0.9em;
+      border-top: 1px solid #d7e4ef;
+      margin-top: 40px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>CattyPassword Manager 🐾</h1>
+    <nav>
+      <a href="#features">Features</a>
+      <a href="#download">Download</a>
+      <a href="#credits">Credits</a>
+    </nav>
+  </header>
+
+  <section id="features">
+    <h2>Features</h2>
+    <div class="features">
+      <div class="feature-card">
+        <h3>🔐 Secure Storage</h3>
+        <p>All your passwords are stored securely in your browser’s local storage — never sent online.</p>
+      </div>
+      <div class="feature-card">
+        <h3>⚡ Instant Access</h3>
+        <p>Quickly generate, save, and manage your passwords in just a few clicks.</p>
+      </div>
+      <div class="feature-card">
+        <h3>📂 Import Support</h3>
+        <p>Import your old Google Password Manager CSV file — easily transition to CattyPassword Manager.</p>
+      </div>
+      <div class="feature-card">
+        <h3>🎨 Clean & Simple</h3>
+        <p>Beautiful light UI with rounded buttons and a light blue accent theme.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="download" style="text-align: center;">
+    <h2>Download</h2>
+    <p>Get the latest version of CattyPassword Manager from our GitHub releases page.</p>
+    <a href="https://github.com/cattymod/pass/releases" class="download-btn">📥 Download Now</a>
+  </section>
+
+  <section id="credits">
+    <h2>Credits</h2>
+    <p>Developed by the <strong>CattyMod Team</strong> 🐾</p>
+    <p>Source code available on <a href="https://github.com/cattymod/pass/">GitHub</a>.</p>
+  </section>
+
+  <footer>
+By The CattyMod Team under the MIT license.
+  </footer>
+</body>
+</html>
