@@ -2,8 +2,8 @@
 ### 🤔 So you're probably here wondering...
 ## "How do I install this extension?""
 ### 😃 Well, You've come to the right place!
-
-## How 2 Install an Awesome Password Manager (On Chrome)
+---
+## How to Install CattyPassword Manager (On Chrome)
 #### 1. Go to chrome://extensions in a new tab
 #### 2. Next, In the Top Right corner, enable Developer Mode.
 #### 3. Go to your file manager and extract the zip
@@ -14,5 +14,5 @@
 #### 8. Then go to the extension
 #### 9. Click Settings -> Import Google Password Manager CSV
 #### 10. And... Boom! CattyPassword Manager is fully setup! Browse with secure passwords all the time!
-
+---
 ### 😉 Now you've installed our extension, how about you try [our other projects](https://github.com/orgs/cattymod/repositories)!
