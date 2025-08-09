@@ -1,6 +1,6 @@
 # 👋 Hey, Welcome Back!
 ### 🤔 So you're probably here wondering...
-## "How do I install this extension?""
+> "How do I install this extension?"
 ### 😃 Well, You've come to the right place!
 ---
 ## How to Install CattyPassword Manager (On Chrome)
