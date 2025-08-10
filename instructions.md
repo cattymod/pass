@@ -15,4 +15,4 @@
 #### 9. Click Settings -> Import Google Password Manager CSV
 #### 10. And... Boom! CattyPassword Manager is fully setup! Browse with secure passwords all the time!
 ---
-### 😉 Now you've installed our extension, how about you try [our other projects](https://github.com/orgs/cattymod/repositories)!
+### 😉 Now you've installed our extension, how about you try [our other projects](https://github.com/cattymod/.github/blob/main/profile/sites.md)?
